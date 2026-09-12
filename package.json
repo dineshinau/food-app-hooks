@@ -1,0 +1,30 @@
+{
+  "name": "food-app-hooks",
+  "version": "1.0.0",
+  "description": "Learning react hooks",
+  "homepage": "https://github.com/dineshinau/food-app-hooks#readme",
+  "bugs": {
+    "url": "https://github.com/dineshinau/food-app-hooks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dineshinau/food-app-hooks.git"
+  },
+  "author": "dineshinau",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+    "browserslist": [
+    "last 2 versions"
+  ]
+}
