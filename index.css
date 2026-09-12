@@ -13,19 +13,24 @@
 		}
 	}
 }
-.rest-container{
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: center;
-	.resto-card{
-		border: 1px solid #000;
-		width:350px;
-		height: 420px;
-		margin-top: 10px;
-		cursor: pointer;
-		:hover{
-			padding: 2px;
+.body{
+	.rest-container{
+		display: inline-flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		justify-content: center;
+		.resto-card{
+			border: 1px solid #000;
+			width:350px;
+			margin-top: 10px;
+			cursor: pointer;
+			:hover{
+				padding: 2px;
+			}
 		}
+	}
+	.rest-filter{
+		margin: 5px;
+		cursor: pointer;
 	}
 }

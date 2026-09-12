@@ -1,10 +1,23 @@
 import RestoCard from "./RestoCard";
+import restList from "../utils/mocData";
+import { useState } from "react";
 
 const Body = () => {
+//    const [restaurentlist, setRestaurentList]=useState(restList);
     return (
-        <div className="rest-container">
-            <RestoCard restName="BMW" cuisine="North Indian, Chineese, Sweets" rating="4.01" delivery="30 minutes" />
-            <RestoCard restName="KFC" cuisine="Burger, Pizza" rating="4.05" delivery="25 minutes" />
+        <div className="body">
+            <div className="filte">
+               <button className="rest-filter" onClick={() => {
+                console.log("clicked");
+
+               }}>Top Rated Restaurants</button>
+            </div>
+
+            <div className="rest-container">
+                {restList.map((rest) => {
+                  return <RestoCard key={rest.info.id} restData={rest.info} />
+                })}
+            </div>
         </div>
     )
 }

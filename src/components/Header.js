@@ -1,8 +1,9 @@
+import { LOGO_URL } from "../utils/constant";
 const Header = () => {
     return (
         <div className="header">
             <div className="logo">
-                <img height="100px" width="100px" src="https://dineshinaublog.wordpress.com/wp-content/uploads/2026/09/food-app.png" />
+                <img height="100px" width="100px" src={LOGO_URL} />
             </div>
             <div className="nav-links">
                 <ul>
