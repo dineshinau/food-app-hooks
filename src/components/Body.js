@@ -1,8 +1,6 @@
 import RestoCard from "./RestoCard";
 import restList from "../utils/mocData";
 import { useState } from "react";
-import restList from "../utils/mocData";
-import restList from "../utils/mocData";
 
 const Body = () => {
     const [restaurentlist, setRestaurentList]=useState(restList);
@@ -10,7 +8,12 @@ const Body = () => {
         <div className="body">
             <div className="filte">
                <button className="rest-filter" onClick={() => {
-                setRestaurentList(restList.filter( (data) => data.avgRating>4.5))
+                setRestaurentList(restList.filter( (data) => data.avgRating>4.4))
+                // console.log(restList);
+                // let filteredList = restList.filter((rest) => rest.avgRating>4.5);
+                // console.log(filteredList);
+
+
                }}>Top Rated Restaurants</button>
             </div>
 
