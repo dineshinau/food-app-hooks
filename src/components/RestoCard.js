@@ -1,8 +1,5 @@
 import StyleCard from "./StyleCard";
 const RestoCard = (restData) => {
-    // console.log(props);
-    // const {restName, cuisine, rating, delivery} = props;
-
     const {
         name, cuisines, avgRating, sla, costForTwo, cloudinaryImageId
      } = restData.restData;
