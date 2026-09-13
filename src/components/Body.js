@@ -8,7 +8,25 @@ const Body = () => {
     const [count,setCount] = useState(' all '+restList.length);
     useEffect(() => {
         console.log('Use effect callded');
+        fetchData();
     },[])
+
+    const fetchData = async () => {
+       const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.63270&lng=77.21980&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING')
+
+       const json = await data.json();
+    //    console.log(json);
+    //    console.log(json?.data?.cards[1]?.card?.card?.gridElements['infoWithStyle'].restaurants);
+       const swigRest = json?.data?.cards[1]?.card?.card?.gridElements['infoWithStyle'].restaurants;
+    //    console.log(swigRest);
+       const finalRest = swigRest.map((rest) => {
+        return rest.info;
+       })
+    //    console.log(finalRest);
+
+       setRestaurentList(finalRest);
+       setCount(' all '+finalRest.length)
+    }
 
     console.log('Body rendered');
 
@@ -16,7 +34,7 @@ const Body = () => {
         <div className="body">
             <div className="filte">
                <button className="rest-filter" onClick={() => {
-                const filteredRest = restList.filter( (data) => data.avgRating>4.6);
+                const filteredRest = restaurentlist.filter( (data) => data.avgRating>4.6);
                 setRestaurentList(filteredRest);
                 setCount(' Top rated '+filteredRest.length)
 
@@ -34,8 +52,8 @@ const Body = () => {
 
                }}>Top Rated Restaurants</button>
                <button className="reset-filter" onClick={() => {
-                setRestaurentList(restList);
-                setCount('all '+restList.length)
+                setRestaurentList(restaurentlist);
+                setCount(' all '+restaurentlist.length)
                }} >Show All</button>
                <span className="show-total">Showing {count} restaurants.</span>
             </div>
