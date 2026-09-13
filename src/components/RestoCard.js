@@ -6,7 +6,7 @@ const RestoCard = (restData) => {
 
     return (
         <div className="resto-card" style={StyleCard}>
-            <img style={{width:"300px", height:"280px"}} src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} />
+            <img style={{width:"200px", height:"200px"}} src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} />
             <h3>{name}</h3>
             <p>{cuisines}</p>
             <span>{avgRating}</span>

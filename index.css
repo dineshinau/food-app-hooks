@@ -1,19 +1,15 @@
 .header{
 	display: flex;
 	border: 1px solid #000;
-	.logo{
-		width: 80%;
-	}
+	.logo{width: 80%;}
 	.nav-links ul{
 		display: flex;
 		list-style: none;
 		padding: 10px;
-		li{
-			padding: 10px;
-		}
+		li{ padding: 10px;}
 	}
 }
-.body{
+.body {
 	.rest-container{
 		display: inline-flex;
 		flex-wrap: wrap;
@@ -21,16 +17,18 @@
 		justify-content: center;
 		.resto-card{
 			border: 1px solid #000;
-			width:350px;
+			width:250px;
 			margin-top: 10px;
 			cursor: pointer;
-			:hover{
-				padding: 2px;
-			}
+			:hover{padding: 2px;}
+			h3, h5, p { margin: 0 0 10px 0; }
 		}
 	}
 	.rest-filter{
 		margin: 5px;
 		cursor: pointer;
+	}
+	.show-total{
+		padding: 5px;
 	}
 }
