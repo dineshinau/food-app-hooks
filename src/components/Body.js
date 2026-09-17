@@ -1,10 +1,12 @@
 import RestoCard from "./RestoCard";
-import restList from "../utils/mocData";
+import Shimmer from "./Shimmer";
+// import restList from "../utils/mocData";
 import { useState, useEffect } from "react";
 
 const Body = () => {
-    const [restaurentlist, setRestaurentList]=useState(restList);
+    const [restaurentlist, setRestaurentList]=useState([]);
     // const [all,setAll] = useState(true);
+    const restList = [];
     const [count,setCount] = useState(' all '+restList.length);
     useEffect(() => {
         console.log('Use effect callded');
@@ -29,6 +31,10 @@ const Body = () => {
     }
 
     console.log('Body rendered');
+
+    if(restaurentlist.length < 1){
+        return <Shimmer />
+    }
 
     return (
         <div className="body">
