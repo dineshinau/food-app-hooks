@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 
 const Body = () => {
     const [restaurentlist, setRestaurentList]=useState([]);
-    // const [all,setAll] = useState(true);
-    const restList = [];
-    const [count,setCount] = useState(' all '+restList.length);
+    const [allRestaurnats,setAllRestaurnats] = useState([]);
+    const [count,setCount] = useState(' all '+restaurentlist.length);
+    // const restList = [];
+
     useEffect(() => {
         console.log('Use effect callded');
         fetchData();
@@ -27,20 +28,18 @@ const Body = () => {
     //    console.log(finalRest);
 
        setRestaurentList(finalRest);
+       setAllRestaurnats(finalRest);
        setCount(' all '+finalRest.length)
     }
 
     console.log('Body rendered');
 
-    if(restaurentlist.length < 1){
-        return <Shimmer />
-    }
-
-    return (
+    // Conditional rendering
+    return (restaurentlist.length < 1) ? <Shimmer /> : (
         <div className="body">
             <div className="filte">
                <button className="rest-filter" onClick={() => {
-                const filteredRest = restaurentlist.filter( (data) => data.avgRating>4.6);
+                const filteredRest = restaurentlist.filter( (data) => data.avgRating>4.4);
                 setRestaurentList(filteredRest);
                 setCount(' Top rated '+filteredRest.length)
 
@@ -58,8 +57,8 @@ const Body = () => {
 
                }}>Top Rated Restaurants</button>
                <button className="reset-filter" onClick={() => {
-                setRestaurentList(restaurentlist);
-                setCount(' all '+restaurentlist.length)
+                setRestaurentList(allRestaurnats);
+                setCount(' all '+allRestaurnats.length)
                }} >Show All</button>
                <span className="show-total">Showing {count} restaurants.</span>
             </div>

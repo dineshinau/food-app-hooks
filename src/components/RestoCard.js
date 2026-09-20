@@ -8,7 +8,7 @@ const RestoCard = (restData) => {
         <div className="resto-card" style={StyleCard}>
             <img style={{width:"200px", height:"200px"}} src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} />
             <h3>{name}</h3>
-            <p>{cuisines}</p>
+            <p>{cuisines.join(', ')}</p>
             <span>{avgRating}</span>
             <p>{costForTwo}</p>
             <h5>{sla?.slaString}</h5>
