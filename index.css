@@ -40,6 +40,23 @@
 		padding: 5px;
 		float: right;
 	}
+	.container-404 {
+		margin: 5% 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		.card-404{
+			width: 80%;
+			height: 200px;
+			background: #ccc;
+			text-align: center;
+			.no-results{
+				margin-top: 7%;
+				color: red;
+				font-size: 2em;
+			}
+		}
+	}
 }
 .shimmer-container {
 	display: inline-flex;

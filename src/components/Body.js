@@ -1,5 +1,7 @@
+import NotFound from "./NotFound";
 import RestoCard from "./RestoCard";
 import Shimmer from "./Shimmer";
+import NotFound from "./NotFound";
 import { useState, useEffect } from "react";
 
 const Body = () => {
@@ -23,43 +25,44 @@ const Body = () => {
         return rest.info;
        })
        setRestaurentList(finalRest);
+       setAllRestaurnats(finalRest);
     }
 
     console.log('Body rendered');
 
     // Conditional rendering
-    return (restaurentlist.length < 1) ? <Shimmer /> : (
+    return (allRestaurnats.length < 1) ? <Shimmer /> : (
         <div className="body">
             <div className="filter">
                <button className="rest-filter" onClick={() => {
                 if(all){
-                    setAllRestaurnats(restaurentlist);
                     setRestaurentList(restaurentlist.filter( (data) => data.avgRating>4.5));
                     setAll(false)
                 }else{
                     setRestaurentList(allRestaurnats);
                     setAll(true)
                 }
-
                }}>Show {all ? btnText : 'All'} Restaurants</button>
 
                <div className="search">
                 <input id="search_text" type="text" value={searchText} onChange={(e) => {
-                    setSearchText(e.target.value)
+                    setSearchText(e.target.value);
+                    if(searchText.length > 0){
+                        setRestaurentList(allRestaurnats.filter((rest) => rest.name.toLowerCase().includes(searchText.toLowerCase()) ));
+                    }
                 }} />
                 <button onClick={() => {
-                    setRestaurentList(allRestaurnats    .filter((rest) => rest.name.toLowerCase().includes(searchText.toLowerCase()) ));
+                    setRestaurentList(allRestaurnats.filter((rest) => rest.name.toLowerCase().includes(searchText.toLowerCase()) ));
                 }}>Search</button>
                </div>
-
                <span className="show-total">Showing {all ? 'All' : 'Top rated'} {restaurentlist.length} restaurants.</span>
             </div>
 
-            <div className="rest-container">
+            {restaurentlist.length<1 ? <NotFound /> :  <div className="rest-container">
                 {restaurentlist.map((rest) => {
                   return <RestoCard key={rest.id} restData={rest} />
                 })}
-            </div>
+            </div>}
         </div>
     )
 }
