@@ -11,10 +11,15 @@
 }
 .body {
 	.filter{
-		margin: 0 7.5%;
+		display: flex;
+		gap: 5em;
+		justify-content: center;
+		.search{
+			padding: 5px;
+		}
 	}
 	.rest-container{
-		display: inline-flex;
+		display: flex;
 		flex-wrap: wrap;
 		gap: 20px;
 		justify-content: center;

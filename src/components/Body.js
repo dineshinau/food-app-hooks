@@ -6,6 +6,7 @@ const Body = () => {
     const [restaurentlist, setRestaurentList]=useState([]);
     const [allRestaurnats,setAllRestaurnats] = useState([]);
     const [all,setAll] = useState(true);
+    const [searchText,setSearchText] = useState('');
     let btnText = "Top Rated"
 
     useEffect(() => {
@@ -41,6 +42,15 @@ const Body = () => {
                 }
 
                }}>Show {all ? btnText : 'All'} Restaurants</button>
+
+               <div className="search">
+                <input id="search_text" type="text" value={searchText} onChange={(e) => {
+                    setSearchText(e.target.value)
+                }} />
+                <button onClick={() => {
+                    setRestaurentList(allRestaurnats    .filter((rest) => rest.name.toLowerCase().includes(searchText.toLowerCase()) ));
+                }}>Search</button>
+               </div>
 
                <span className="show-total">Showing {all ? 'All' : 'Top rated'} {restaurentlist.length} restaurants.</span>
             </div>
