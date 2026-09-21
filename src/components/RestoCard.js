@@ -1,13 +1,14 @@
 import StyleCard from "./StyleCard";
+import { Link } from "react-router-dom";
 const RestoCard = (restData) => {
     const {
-        name, cuisines, avgRating, sla, costForTwo, cloudinaryImageId
+        id, name, cuisines, avgRating, sla, costForTwo, cloudinaryImageId
      } = restData.restData;
 
     return (
-        <div className="resto-card" style={StyleCard}>
+        <div id={id} className="resto-card" style={StyleCard}>
             <img style={{width:"200px", height:"200px"}} src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} />
-            <h3>{name}</h3>
+            <Link to={"/restaurants/"+id}><h3>{name}</h3></Link>
             <p>{cuisines.join(', ')}</p>
             <span>{avgRating}</span>
             <p>{costForTwo}</p>
