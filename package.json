@@ -18,6 +18,7 @@
     "build": "parcel build index.html"
   },
   "devDependencies": {
+    "@parcel/resolver-glob": "^2.16.4",
     "parcel": "^2.16.4"
   },
   "dependencies": {
