@@ -1,7 +1,7 @@
 .header{
 	display: flex;
 	border: 1px solid #000;
-	.logo{width: 80%;}
+	.logo{width: 75%;}
 	.nav-links ul{
 		display: flex;
 		list-style: none;
@@ -68,4 +68,10 @@
 		height: 350px;
 		margin: 15px;
 	}
+}
+.user-card{
+	padding: 10px;
+	border: 1px solid black;
+	width: 450px;
+	margin: 5px;
 }
